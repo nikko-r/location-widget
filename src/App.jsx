@@ -50,6 +50,10 @@ function App() {
           <img src={thermometerIcon}></img>
         </div>
       </div>
+      <div className="widget">
+        <h2>Weather</h2>
+        <h3>{weatherData?.current.condition.text}°C</h3>
+      </div>
     </div>
   );
 }
