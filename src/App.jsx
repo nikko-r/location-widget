@@ -1,6 +1,7 @@
 import "./App.scss";
 import thermometerIcon from "./Thermometer.svg";
 import compassIcon from "./Compass.svg";
+import windIcon from "./Wind.svg";
 import { useState } from "react";
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
   return (
     <div className="App">
       {/* <h1>weather: {weatherData?.location.name}</h1> */}
-      <div className="widget widget--wide widget__row">
+      <div id="location-widget" className="widget widget--wide widget__row">
         <div>
           <h2>Location</h2>
           <h3>{weatherData?.location.country}</h3>
@@ -40,7 +41,7 @@ function App() {
         </div>
         <img src={compassIcon}></img>
       </div>
-      <div className="widget">
+      <div id="temperature-widget" className="widget">
         <h2>Temperature</h2>
         <div className="widget__row">
           <div>
@@ -50,9 +51,15 @@ function App() {
           <img src={thermometerIcon}></img>
         </div>
       </div>
-      <div className="widget">
+      <div id="weather-widget" className="widget">
         <h2>Weather</h2>
-        <h3>{weatherData?.current.condition.text}°C</h3>
+        <h3>{weatherData?.current.condition.text}</h3>
+      </div>
+      <div id="windspeed-widget" className="widget">
+        <h2>Wind Speed</h2>
+        <h3>{weatherData?.current.wind_mph} mph</h3>
+        <h3>{weatherData?.current.wind_kph} kph</h3>
+        <img src={windIcon}></img>
       </div>
     </div>
   );
