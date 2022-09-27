@@ -2,6 +2,7 @@ import "./App.scss";
 import thermometerIcon from "./Thermometer.svg";
 import compassIcon from "./Compass.svg";
 import windIcon from "./Wind.svg";
+import windDirectionIcon from "./WindDirection.svg";
 import { useState } from "react";
 
 function App() {
@@ -60,6 +61,11 @@ function App() {
         <h3>{weatherData?.current.wind_mph} mph</h3>
         <h3>{weatherData?.current.wind_kph} kph</h3>
         <img src={windIcon}></img>
+      </div>
+      <div id="winddirection-widget" className="widget">
+        <h2>Wind Direction</h2>
+        <h3>{weatherData?.current.wind_dir}</h3>
+        <img src={windDirectionIcon}></img>
       </div>
     </div>
   );
