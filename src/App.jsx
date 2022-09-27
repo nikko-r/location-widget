@@ -3,7 +3,7 @@ import thermometerIcon from "./Thermometer.svg";
 import compassIcon from "./Compass.svg";
 import windIcon from "./Wind.svg";
 import windDirectionIcon from "./WindDirection.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [weatherData, setWeatherData] = useState();
@@ -26,13 +26,23 @@ function App() {
     setWeatherData(weatherDataJson);
     // return weatherDataJson;
   };
-  getWeatherData();
   // console.log(weatherData);
   // console.log(weatherData?.location);
+  useEffect(() => {
+    getWeatherData();
+    speechSynthesis.speak(
+      new SpeechSynthesisUtterance(
+        `Good Morning. The temperature is ${weatherData?.current.temp_c}°C. The weather is ${weatherData?.current.condition.text}, with wind speeds of ${weatherData?.current.wind_mph} mph`
+      )
+    );
+  }, []);
 
   return (
     <div className="App">
       {/* <h1>weather: {weatherData?.location.name}</h1> */}
+      <div id="greeting-widget" className="widget widget--super-wide">
+        <h3>Good Morning</h3>
+      </div>
       <div id="location-widget" className="widget widget--wide widget__row">
         <div>
           <h2>Location</h2>

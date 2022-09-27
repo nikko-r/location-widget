@@ -27,6 +27,7 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: flex-start;
     width: 100vw;
     height: 100vh;
 }
@@ -47,11 +48,19 @@ h3 {
     &--wide {
         width: 35%;
     }
+    &--super-wide {
+        width: 91%;
+        height: 7%;
+    }
 }
 
 .widget__row {
     display: flex;
     flex-direction: row;
+}
+
+#greeting-widget {
+    align-items: flex-start;
 }
 
 #weather-widget {
